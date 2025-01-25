@@ -19,8 +19,8 @@ const MovieDetails = ({ movieId, onClose }: MovieDetailsProps) => {
         setIsLoading(true);
         const data = await fetchMovieDetails(movieId);
         setMovieDetails(data);
-        console.log('set movie detail', data);
       } catch (err) {
+        console.error('Error fetching movie details:', err);
         setError('Failed to fetch movie details');
       } finally {
         setIsLoading(false);
