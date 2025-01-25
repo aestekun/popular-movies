@@ -7,18 +7,34 @@ export type Movie = {
   release_date: string;
 };
 
-const MovieCard = ({ movie }: { movie: Movie }) => {
-  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+type MovieCardProps = {
+  movie: Movie;
+  onClick: () => void;
+};
+
+const MovieCard = ({ movie, onClick }: MovieCardProps) => {
+  const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const releaseYear = new Date(movie.release_date).getFullYear();
 
   return (
-    <div className="border rounded-xl border-gray-200 flex p-[1px] hover:bg-gray-200">
+    <div
+      onClick={onClick}
+      className="border cursor-pointer rounded-xl border-gray-200 flex p-[1px] hover:bg-gray-100"
+    >
       <div className="rounded-xl overflow-hidden">
-        <Image src={imageUrl} alt={movie.title} width={72} height={108} />
+        <Image src={posterUrl} alt={movie.title} width={72} height={108} />
       </div>
       <div className="self-center space-y-2 px-6">
         <h3 className="font-bold text-normal">{movie.title}</h3>
-        <p>{releaseYear}</p>
+        <p className="flex gap-x-2">
+          <Image
+            src="/calendar-icon.svg"
+            alt="Calendar icon"
+            width={16}
+            height={16}
+          />
+          <time>{releaseYear}</time>
+        </p>
       </div>
     </div>
   );

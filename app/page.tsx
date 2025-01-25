@@ -5,9 +5,9 @@ import Image from 'next/image';
 export default async function Home() {
   const movies = await fetchMovies();
   return (
-    <div className="mx-auto w-full md:w-1/2 lg:w-[480px]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <header className="flex items-center">
+    <div className="mx-auto w-full md:w-1/2 lg:w-[480px] p-8 md:p-0">
+      <main className="py-8">
+        <header className="flex justify-center mb-8">
           <Image
             src="/film-icon.svg"
             alt="Film icon"
@@ -22,5 +22,7 @@ export default async function Home() {
     </div>
   );
 }
-
+export const metadata = {
+  title: 'Popular Movies 🎥',
+};
 export const revalidate = 3600; // re-generate page each 1 hour
