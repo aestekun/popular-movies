@@ -27,7 +27,7 @@ const MovieList = ({ header, movies }: MovieListProps) => {
           transition
           className="fixed inset-0 bg-white/80 backdrop-blur-[6px] duration-200 ease-out data-[closed]:opacity-0"
         />
-        <DialogPanel className="fixed top-1/4 left-10 right-10 lg:top-1/4 lg:left-1/4 lg:right-1/4">
+        <DialogPanel className="fixed top-10 left-10 right-10 lg:top-1/4 lg:left-1/4 lg:right-1/4">
           {selectedMovieId && (
             <MovieDetails movieId={selectedMovieId} onClose={closeModal} />
           )}

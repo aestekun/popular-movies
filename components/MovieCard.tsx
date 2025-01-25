@@ -23,7 +23,7 @@ const MovieCard = ({ movie, onClick }: MovieCardProps) => {
       onClick={onClick}
       className="border cursor-pointer rounded-xl border-gray-200 flex p-[1px] hover:bg-gray-100"
     >
-      <div className="rounded-xl overflow-hidden">
+      <div className="rounded-xl overflow-hidden shrink-0">
         <Image src={posterUrl} alt={movie.title} width={72} height={108} />
       </div>
       <div className="self-center space-y-2 px-6">
