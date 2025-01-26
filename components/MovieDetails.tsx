@@ -65,7 +65,7 @@ const MovieDetails = ({ movieId, onClose }: MovieDetailsProps) => {
               height={192}
             />
           </div>
-          <div className="self-center space-y-2 sm:px-6">
+          <div className="self-center space-y-2 sm:px-6 max-h-[46vh] sm:max-h-max overflow-auto">
             <h3 className="font-bold text-2xl">
               {movieDetails?.title} ★ {movieDetails?.vote_average.toFixed(1)}
             </h3>
