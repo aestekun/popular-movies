@@ -43,6 +43,7 @@ const MovieDetails = ({ movieId, onClose }: MovieDetailsProps) => {
       <button
         className="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2.5"
         onClick={onClose}
+        aria-label="Close dialog"
       >
         <Image src="/close-icon.svg" alt="close icon" width={20} height={20} />
       </button>
@@ -67,7 +68,7 @@ const MovieDetails = ({ movieId, onClose }: MovieDetailsProps) => {
           </div>
           <div className="self-center space-y-2 sm:px-6 max-h-[46vh] sm:max-h-max overflow-auto">
             <h3 className="font-bold text-2xl">
-              {movieDetails?.title} ★ {movieDetails?.vote_average.toFixed(1)}
+              {movieDetails?.title} ★ {movieDetails?.vote_average?.toFixed(1)}
             </h3>
             <div className="flex gap-x-2">
               <Image

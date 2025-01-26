@@ -11,25 +11,26 @@ type MovieListProps = {
 
 const MovieList = ({ header, movies }: MovieListProps) => {
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
+  const isDialogOpen = selectedMovieId !== null;
 
   const handleMovieClick = (movieId: number) => {
     setSelectedMovieId(movieId);
   };
 
-  const closeModal = () => {
+  const closeDialog = () => {
     setSelectedMovieId(null);
   };
 
   return (
     <>
-      <Dialog open={selectedMovieId !== null} onClose={closeModal}>
+      <Dialog open={isDialogOpen} onClose={closeDialog}>
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-white/80 backdrop-blur-[6px] duration-200 ease-out data-[closed]:opacity-0"
         />
         <DialogPanel className="fixed top-10 left-10 right-10 lg:top-1/4 lg:left-1/4 lg:right-1/4">
           {selectedMovieId && (
-            <MovieDetails movieId={selectedMovieId} onClose={closeModal} />
+            <MovieDetails movieId={selectedMovieId} onClose={closeDialog} />
           )}
         </DialogPanel>
       </Dialog>

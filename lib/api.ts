@@ -1,6 +1,7 @@
 import { Movie } from '@/components/MovieCard';
 
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+const BASE_URL = 'https://api.themoviedb.org/3';
 
 interface MovieApiResponse {
   page: number;
@@ -17,7 +18,7 @@ export async function fetchMovies(): Promise<Movie[]> {
   }
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+      `${BASE_URL}/movie/popular?api_key=${API_KEY}`
     );
 
     if (!response.ok) {
@@ -43,7 +44,7 @@ export async function fetchMovieDetails(movieId: number): Promise<Movie> {
   }
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`
+      `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
     );
 
     if (!response.ok) {
